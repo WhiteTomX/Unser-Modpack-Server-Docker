@@ -6,12 +6,12 @@ RUN apk update \
 
 RUN mkdir -p /opt/minecraft
 WORKDIR /opt/minecraft
-COPY start.sh ./start.sh
 COPY server.zip ./server.zip
 RUN unzip -qq server.zip && rm server.zip
 RUN echo "eula=true" > eula.txt
 
 EXPOSE 25565
+VOLUME /opt/minecraft/world
 
 
 ENTRYPOINT ["java","-Xms1024M","-Xmx2048M","-jar","forge-1.12.2-14.23.5.2838-universal.jar"]
