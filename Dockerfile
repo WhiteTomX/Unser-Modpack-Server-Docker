@@ -2,12 +2,12 @@ FROM alpine:latest
 
 # Install dependencies
 RUN apk update \
-    && apk add --no-cache unzip openjdk8-jre bash
+    && apk add --no-cache unzip openjdk8-jre bash curl tar
 
 RUN mkdir -p /opt/minecraft
 WORKDIR /opt/minecraft
-COPY server.zip ./server.zip
-RUN unzip -qq server.zip && rm server.zip
+RUN curl https://github.com/WhiteTomX/Unser-Modpack-Server/archive/v1.3.0.tar.gz | tar -xjC /opt/minecraft
+
 RUN echo "eula=true" > eula.txt
 
 EXPOSE 25565
