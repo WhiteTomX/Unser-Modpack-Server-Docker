@@ -6,7 +6,7 @@ RUN apk update \
 
 RUN mkdir -p /opt/minecraft
 WORKDIR /opt/minecraft
-RUN curl https://github.com/WhiteTomX/Unser-Modpack-Server/archive/v1.3.0.tar.gz | tar -xjC /opt/minecraft
+RUN curl https://github.com/WhiteTomX/Unser-Modpack-Server/archive/v1.4.0.tar.gz | tar -xjC /opt/minecraft
 
 RUN echo "eula=true" > eula.txt
 
